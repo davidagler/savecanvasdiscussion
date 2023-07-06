@@ -28,7 +28,6 @@ def run():
     studentids_messages = get_studentids_messages(data)
     student_id_replies = get_student_id_replies(data)
     combined_data = combine_data(student_names_ids, studentids_messages, student_id_replies)
-
     # Pass combined_data to create_csv function
     create_csv(combined_data)
 

@@ -43,9 +43,10 @@ def combine_data(student_names_ids, studentids_messages, student_id_replies):
     """Returns a dictionary of student names, IDs, initial posts, and replies."""
     combined_data = {}
     for student_name, student_id in student_names_ids.items():
-        if student_id in studentids_messages and student_id in student_id_replies:
+        if student_id in studentids_messages:
             initial_post = studentids_messages[student_id]
-            replies = student_id_replies[student_id]
+            replies = student_id_replies.get(student_id, [])  # Retrieve replies if available, otherwise use an empty list
             combined_data[student_name] = {"initial_post": initial_post, "replies": replies}
 
     return combined_data
+

@@ -15,10 +15,15 @@ def create_csv(combined_data):
     rows = []
     for student_name, student_data in combined_data.items():
         row = [student_name, student_data["initial_post"]]
-        row.extend(student_data["replies"])
+        if student_data["replies"]: # Check replies exist
+            row.extend(student_data["replies"])
+        else:
+            row.extend([""] * max_replies)  # Empty strings for missing replies
         rows.append(row)
     with open(c.csv_file, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(headers)
         writer.writerows(rows)
     return
+
+
