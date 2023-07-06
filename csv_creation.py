@@ -1,7 +1,6 @@
 '''CSV file that writes the combined_data dictionary to a CSV file. '''
 import csv
-
-csv_file = "canvas_discussion.csv"
+import constants as c
 
 def create_csv(combined_data):
     # Get the maximum number of replies for any student
@@ -17,7 +16,7 @@ def create_csv(combined_data):
         row = [student_name, student_data["initial_post"]]
         row.extend(student_data["replies"])
         rows.append(row)
-    with open(csv_file, "w", newline="") as file:
+    with open(c.csv_file, "w", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(headers)
         writer.writerows(rows)

@@ -8,11 +8,19 @@ from pretty_txt import remove_html_tags
 
 def run():
     # Prompt the user to enter the JSON file path
-    json_file_path = input("Enter the path to the JSON file: ")
+    json_file_path_input = input("Enter the path to the JSON file: ")
+    json_file_path = json_file_path_input.replace("/", "\\")
 
-    # Read the JSON file and load its contents into a variable
-    with open(json_file_path, encoding="utf-8") as file:
-        data = json.load(file)
+    try:
+        # Read the JSON file and load its contents into a variable
+        with open(json_file_path, encoding="utf-8") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        print("File not found. Please check the file path.")
+        return
+    except Exception as e:
+        print(f"Error occurred while reading the JSON file: {e}")
+        return
 
     # Call the helper functions
     student_names_ids = get_student_names_ids(data)
@@ -26,12 +34,15 @@ def run():
     # Create a folder for txt files
     txt_folder_name = c.OUT_TXT
     create_folder(txt_folder_name)
+    print(f"Created a folder named {txt_folder_name} in the current directory.")
 
     #Pass csv_file to create_student_files function
-    create_student_files(csv_file)
+    create_student_files(c.csv_file)
+    print(f"Created txt files for each student in the {txt_folder_name} folder.")
 
     # Remove HTML from txt files
     remove_html_tags(txt_folder_name)
+    print(f"Cleaned up HTML from each txt file.")
 
 if __name__ == "__main__":
     run()
