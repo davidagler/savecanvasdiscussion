@@ -1,5 +1,6 @@
 import os
 
+
 def create_folder(folder_name):
     current_directory = os.getcwd()
     folder_path = os.path.join(current_directory, folder_name)
@@ -11,4 +12,3 @@ def create_folder(folder_name):
         print(f"Folder '{folder_name}' created in the current directory.")
     else:
         print(f"Folder '{folder_name}' already exists in the current directory.")
-

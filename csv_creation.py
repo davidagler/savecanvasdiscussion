@@ -2,6 +2,7 @@
 import csv
 import constants as c
 
+
 def create_csv(combined_data):
     # Get the maximum number of replies for any student
     max_replies = max(len(combined_data[student]["replies"]) for student in combined_data)
@@ -20,3 +21,4 @@ def create_csv(combined_data):
         writer = csv.writer(file)
         writer.writerow(headers)
         writer.writerows(rows)
+    return

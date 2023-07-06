@@ -9,6 +9,7 @@ def get_student_names_ids(data):
 
     return student_names_ids
 
+
 def get_studentids_messages(data):
     """Returns a dictionary of student IDs and their initial posts from the input JSON data."""
     posts = data["view"]
@@ -19,6 +20,7 @@ def get_studentids_messages(data):
         studentids_messages[user_id] = message
 
     return studentids_messages
+
 
 def get_student_id_replies(data):
     """Returns a dictionary of student IDs and their replies from the input JSON data."""
@@ -36,6 +38,7 @@ def get_student_id_replies(data):
 
     return student_id_replies
 
+
 def combine_data(student_names_ids, studentids_messages, student_id_replies):
     """Returns a dictionary of student names, IDs, initial posts, and replies."""
     combined_data = {}
@@ -46,4 +49,3 @@ def combine_data(student_names_ids, studentids_messages, student_id_replies):
             combined_data[student_name] = {"initial_post": initial_post, "replies": replies}
 
     return combined_data
-

@@ -2,8 +2,8 @@ import csv
 import os
 import constants as c
 
-# Creates a folder at the specified path
 
+# Creates a folder at the specified path
 def create_student_files(csv_file):
     with open(csv_file, 'r') as file:
         reader = csv.reader(file)
