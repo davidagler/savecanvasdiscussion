@@ -20,7 +20,7 @@ def create_csv(combined_data):
         else:
             row.extend([""] * max_replies)  # Empty strings for missing replies
         rows.append(row)
-    with open(c.csv_file, "w", newline="") as file:
+    with open(c.csv_file, "w", encoding="utf-8", newline="") as file:
         writer = csv.writer(file)
         writer.writerow(headers)
         writer.writerows(rows)

@@ -18,6 +18,6 @@ def remove_html_tags(directory):
             text_without_tags = soup.get_text()
 
             # Save the .txt back to the file
-            with open(file_path, 'w') as file:
+            with open(file_path, 'w', encoding="utf-8") as file:
                 file.write(text_without_tags)
     return

@@ -7,14 +7,24 @@ import constants as c
 from pretty_txt import remove_html_tags
 
 
+# Check encoding
+import chardet
+
+
+
+
 def run():
     # Prompt the user to enter the JSON file path
     json_file_path_input = input("Enter the path to the JSON file: ")
     json_file_path = json_file_path_input.replace("/", "\\")
 
+    # Detect the encoding of the file
+    with open(json_file_path, 'rb') as file:
+        encoding = chardet.detect(file.read())['encoding']
+
     try:
         # Read the JSON file and load its contents into a variable
-        with open(json_file_path, encoding="utf-8") as file:
+        with open(json_file_path, encoding=encoding) as file:
             data = json.load(file)
     except FileNotFoundError:
         print("File not found. Please check the file path.")

@@ -10,6 +10,6 @@ You'll need the JSON file from Canvas that contains the discussion information. 
 https://{school_abbreviation}.instructure.com/api/v1/courses/{course_id}/discussion_topics/{more_data}/view?include_new_entries=1&include_enrollment_state=1
 ```
 
-The {school_abbreviation} is the abbreviation for your school. You can typically view this abbreviation in a section of your CANVAS course. For example, the abbreviation for The Pennsylvania State University is "psu". The {course_id} is the course id for the section of the course. The {more_data} is the discussion id. You can get this by going to the discussion in Canvas and looking at the URL.
+The {school_abbreviation} is the abbreviation for your school. You can typically view this abbreviation in a section of your CANVAS course. For example, the abbreviation for The Pennsylvania State University is "psu". The {course_id} is the course id for the section of the course. The {more_data} is the discussion id. You can get this by going to the discussion in Canvas and looking at the URL. You should save this JSON file. You can do this by right clicking in your browser and selecting "Save As". Save the file as a .json file.
 
 Next, you'll want to know the file path of the JSON file. When you run main.py, it will ask for a file path for the JSON file. Supply the file path and the script will run, creating a CSV file and TXT files.
